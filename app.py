@@ -1,13 +1,14 @@
-import getpass
 import os
 
-API_KEY = getpass.getpass("Enter your API key: ")
+API_KEY = os.environ.get("API_KEY", "").strip()
 
-if API_KEY.strip():
-    os.environ["API_KEY"] = API_KEY.strip()
-    print("API key entered successfully!")
-else:
-    print("No API key entered. Please run this cell again.")
+if not API_KEY:
+    raise ValueError(
+        "API key is missing. Please add API_KEY "
+        "in Render Environment Variables."
+    )
+
+print("API key loaded successfully!")
 import os
 import tempfile
 import warnings
