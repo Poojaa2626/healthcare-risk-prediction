@@ -1,3 +1,4 @@
+
 import os
 
 API_KEY = os.environ.get("API_KEY", "").strip()
@@ -300,10 +301,10 @@ print("Diabetes best model:", diabetes_bundle["model_name"])
 print("Heart disease best model:", heart_bundle["model_name"])
 
 print("\nDIABETES MODEL COMPARISON")
-display(diabetes_bundle["results"])
+print(diabetes_bundle["results"].to_string(index=False))
 
 print("\nHEART DISEASE MODEL COMPARISON")
-display(heart_bundle["results"])
+print(heart_bundle["results"].to_string(index=False))
 
 print("\nBoth machine-learning models trained successfully.")
 # -----------------------------
